@@ -33,3 +33,4 @@ else
   set expandtab
 endif
 
+set background=dark
