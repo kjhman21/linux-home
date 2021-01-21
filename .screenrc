@@ -1,0 +1,36 @@
+vbell off
+startup_message off
+defscrollback 10000                                                                                                                    
+nonblock on
+
+msgwait 0
+#activity "         Activity has appeared in window      %n - %t"                                                                      
+
+backtick 1 0 0 /home/junghyun/bin/cpuusage
+
+hardstatus alwayslastline
+#hardstatus string '%{= kw}[ %{= kb}%H%{= kw} ][%= %{= kw}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?%?%{=b kR})%{= kw}%?%+Lw%?%?%= ][ %{r}%l%{w} ]%{w}[%{r} %d/%m/%y %C %A %{w}]%{w}'
+hardstatus string '%{= kG}[ %{B}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{=b kw}%n*%f %t%?(%u)%?%{-b r})%{g}%?%+Lw%?%?%= %{g}][ %1`%% CPU ][ %{Y}%Y/%m/%d %D %c%{g} ]'
+ 
+#default shell
+shell bash
+                                                                                                                                       
+# dynamic title
+shelltitle '$ |bash'
+                                                                                                                                       
+autodetach on
+
+attrcolor b ".I"
+#termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'                                                                              
+
+bind j focus down
+bind k focus up                                                                                                                        
+bind t focus top                                                                                                                       
+bind b focus bottom
+bind h focus left
+bind l focus right                                                                                                                     
+
+#syntax: screen -t label order command
+#screen -t a01 0
+#screen -t a16 2 ssh junghyun@vm
+#screen -t a11 1 ssh junghyun@vm
