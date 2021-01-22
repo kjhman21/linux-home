@@ -1,2 +1,11 @@
 #!/bin/bash
-awk 'BEGIN {file = "/proc/stat";while (a==a) {getline < file;u=$2-up;s=$3-sp;n=$4-np;i=$5-ip;printf ("%2.1f\n"),(u+s)/(u+s+n+i)*100;up=$2;sp=$3;np=$4;ip=$5;close(file);system("sleep 1")}}'
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  # ...
+	awk 'BEGIN {file = "/proc/stat";while (a==a) {getline < file;u=$2-up;s=$3-sp;n=$4-np;i=$5-ip;printf ("%2.1f\n"),(u+s)/(u+s+n+i)*100;up=$2;sp=$3;np=$4;ip=$5;close(file);system("sleep 1")}}'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  # Mac OSX
+	while true; do
+		ps -A -o %cpu | awk '{s+=$1} END {print s}'
+		sleep 1
+	done
+fi
