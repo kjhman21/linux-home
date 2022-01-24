@@ -10,8 +10,6 @@ map <F11> :norm ^xx<CR>
 
 nmap t] :tj <C-R>=expand("<cword>")<CR><CR>
 
-so $HOME/.vim/myfiletypes.vim
-
 syntax on
 set tabstop=2
 set softtabstop=2
