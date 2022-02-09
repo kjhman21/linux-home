@@ -110,8 +110,8 @@ alias ctags="ctags -R -h '.h.c'"
 alias cpptags="ctags -R -h '.h.cc.cpp'"
 alias doxygenconf="doxygen -g doxygen.conf"
 alias doxy="doxygen doxygen.conf"
-alias github_sync="[ `git diff --name-only | wc -l` != 0 ] && git checkout dev && git fetch upstream dev && git rebase upstream/dev && git push origin dev && git pull -p"
-alias github_sync_master="[ `git diff --name-only | wc -l` != 0 ] && git checkout master && git fetch upstream master && git rebase upstream/master && git push origin master && git pull -p"
+alias github_sync='git status && [ -z "$(git status --porcelain)" ] && git checkout dev && git fetch upstream dev && git rebase upstream/dev && git push origin dev && git pull -p'
+alias github_sync_master='git status && [ -z "$(git status --porcelain)" ] && git checkout master && git fetch upstream master && git rebase upstream/master && git push origin master && git pull -p'
 
 export PATH=$PATH:~/bin
 export GREP_OPTION="--color=auto"
